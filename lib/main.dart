@@ -12,15 +12,98 @@ class MyApp extends StatelessWidget {
     
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar( title: Text('앱임')),
-        body: Align(
-          alignment: Alignment.topCenter,
-          child:Container(
-            width: double.infinity, height: 50,
-            decoration : BoxDecoration(
-              border: Border.all(color: Colors.black),
-              color: Colors.blue,
-            )// 섬세한 박스 데코 
+        appBar: AppBar( actions  : [Icon(Icons.star), Icon(Icons.star)], title: Text('dd')),
+        body: Container(
+          height: 200,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,// Row 안의 자식들이 세로로 꽉 차게(높이가 같게) 만듬 
+            children: [
+              Expanded(
+                flex: 4,
+                child: Image.asset('mango.jpg',fit: BoxFit.cover),
+              ),
+              Expanded(
+                flex: 6,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      flex: 4,
+                      child: Container(
+                        color: Colors.white,
+                        padding : EdgeInsets.only(left: 12),
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                            '캐논 DSLR 100D (단렌즈, 충전기 16기가SD 포함)',
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold
+                            )
+                          )
+                          
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        color: Colors.white,
+                        padding : EdgeInsets.only(left: 12),
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                            '성동구 행당동 끌올 10분 전',
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.grey
+                            )
+                          )
+                          
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        color: Colors.white,
+                        padding : EdgeInsets.only(left: 12),
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          '210,000원',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold
+                          )
+                        )
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        color: Colors.white,
+                        padding: EdgeInsets.symmetric(horizontal:16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.favorite, 
+                              color: Colors.grey,
+                            ),
+                            SizedBox(width:4), // 아이콘과 숫자 사이의 미세한 간격 
+                            Text(
+                              '4',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold
+                              )
+                            )
+                          ],
+                        )
+                      ),
+                    ),
+                  ],
+                  )
+              ),
+              
+              ],
           ),
         )
       )
