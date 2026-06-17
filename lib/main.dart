@@ -13,101 +13,40 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar( actions  : [Icon(Icons.star), Icon(Icons.star)], title: Text('dd')),
-        body: Container(
-          height: 200,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,// Row 안의 자식들이 세로로 꽉 차게(높이가 같게) 만듬 
+        bottomNavigationBar: BottomAppBar(
+          child : Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Expanded(
-                flex: 4,
-                child: Image.asset('mango.jpg',fit: BoxFit.cover),
-              ),
-              Expanded(
-                flex: 6,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Expanded(
-                      flex: 4,
-                      child: Container(
-                        color: Colors.white,
-                        padding : EdgeInsets.only(left: 12),
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                            '캐논 DSLR 100D (단렌즈, 충전기 16기가SD 포함)',
-                            style: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold
-                            )
-                          )
-                          
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Container(
-                        color: Colors.white,
-                        padding : EdgeInsets.only(left: 12),
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                            '성동구 행당동 끌올 10분 전',
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.grey
-                            )
-                          )
-                          
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Container(
-                        color: Colors.white,
-                        padding : EdgeInsets.only(left: 12),
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          '210,000원',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold
-                          )
-                        )
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Container(
-                        color: Colors.white,
-                        padding: EdgeInsets.symmetric(horizontal:16),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.favorite, 
-                              color: Colors.grey,
-                            ),
-                            SizedBox(width:4), // 아이콘과 숫자 사이의 미세한 간격 
-                            Text(
-                              '4',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold
-                              )
-                            )
-                          ],
-                        )
-                      ),
-                    ),
-                  ],
-                  )
-              ),
-              
-              ],
-          ),
+              IconButton(onPressed:() {}, icon: Icon(Icons.home)),
+              IconButton(onPressed:() {}, icon: Icon(Icons.search)),
+              IconButton(onPressed:() {}, icon: Icon(Icons.person)),
+            ],
+          )
+        ),
+        body: ListView( //스크롤바 생김, 메모리 관리도 편하여 성능 개선도 가능
+          children: [
+            Row(
+              children: [
+                Flexible(child: Icon(Icons.person), flex: 2,),
+                Text('홍길동')
+              ]
+            ),
+            Row(
+              children: [
+                Flexible(child: Icon(Icons.person), flex: 2,),
+                Text('홍길동')
+              ]
+            ),
+            Row(
+              children: [
+                Flexible(child: Icon(Icons.person), flex: 2,),
+                Text('홍길동')
+              ]
+            ),
+          ],
         )
       )
-      
+      // dev tool 단축키 : alt + 4 
        // 하단에 들어갈 위젯
       );// 상중하로 나눠주는 위젯
       // 내 자식 위젯의 기준점을 중앙으로 설정해주는 Center()
@@ -123,5 +62,16 @@ class MyApp extends StatelessWidget {
       // Icon(Icons.star) 아이콘 위젯 
       // Text('안녕') // 글자 위젯
       //커스터 마이징하고 싶을때는 MaterialApp()을 써야함 
+  }
+}
+// stless tap키 치기
+// 커스텀 위젯
+var a = SizedBox(child: Text('변수 테스트'),);
+class ShopItem extends StatelessWidget {
+  const ShopItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return a;
   }
 }
